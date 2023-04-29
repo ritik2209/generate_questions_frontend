@@ -1,0 +1,43 @@
+
+.Questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.Questions h2 {
+  margin-left: 20px;
+}
+
+.QuestionItem {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  display: flex;
+  font-size: x-large;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.loading {
+  color: grey;
+  display: flex;
+  font-size: x-large;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
