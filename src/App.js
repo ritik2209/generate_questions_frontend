@@ -17,7 +17,7 @@ function App() {
     setQuestions([]);
     try {
       const response = await fetch(
-        "https://54.209.173.217/generate_questions?input_text=" + text,
+        "http://54.209.173.217/generate_questions?input_text=" + text,
         {
           method: "POST",
           headers: {
