@@ -9,7 +9,10 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const https = require('https');
+  const agent = new https.Agent({
+  rejectUnauthorized: false
+  });
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -20,6 +23,7 @@ function App() {
         "https://54.209.173.217/generate_questions?input_text=" + text,
         {
           method: "POST",
+          agent: agent,
           headers: {
             "Content-Type": "application/json",
           },
