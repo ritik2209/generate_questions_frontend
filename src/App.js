@@ -3,30 +3,31 @@ import "./App.css";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import QuestionList from "./components/QuestionList";
+import axios from 'axios';
+import https from 'https';
 
 function App() {
   const [text, setText] = useState("");
   const [questions, setQuestions] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const https = require('https');
   const agent = new https.Agent({
   rejectUnauthorized: false
-  });
+});
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
     setQuestions([]);
     try {
-      const response = await fetch(
+      const response = await axios.post(
         "https://54.209.173.217/generate_questions?input_text=" + text,
+        {},
         {
-          method: "POST",
-          agent: agent,
           headers: {
             "Content-Type": "application/json",
           },
+          httpsAgent: agent
         }
       );
       if (!response.ok) {
