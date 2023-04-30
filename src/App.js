@@ -4,16 +4,12 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import QuestionList from "./components/QuestionList";
 import axios from 'axios';
-import https from 'https';
 
 function App() {
   const [text, setText] = useState("");
   const [questions, setQuestions] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const agent = new https.Agent({
-  rejectUnauthorized: false
-});
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -27,7 +23,6 @@ function App() {
           headers: {
             "Content-Type": "application/json",
           },
-          httpsAgent: agent
         }
       );
       if (!response.ok) {
