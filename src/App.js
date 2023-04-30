@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import QuestionList from "./components/QuestionList";
-import axios from 'axios';
+
 
 function App() {
   const [text, setText] = useState("");
@@ -16,10 +16,10 @@ function App() {
     setError(null);
     setQuestions([]);
     try {
-      const response = await axios.post(
+      const response = await fetch(
         "https://54.209.173.217/generate_questions?input_text=" + text,
-        {},
         {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
